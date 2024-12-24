@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png" />
+
+    <title>Frontend Mentor | Bento grid</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .wrapper {
+        background-color: azure;
+        display: grid;
+        gap: 20px;
+        grid-template-columns: 1fr 1fr 1fr 1fr; /* Ensures consistent column widths */
+        grid-auto-rows: minmax(
+          150px,
+          auto
+        ); /* Ensures consistent row heights */
+        padding-left: 100px;
+        padding-right: 100px;
+        padding-top: 50px;
+        padding-bottom: 50px;
+      }
+
+      .wrapper > div {
+        border-radius: 10px;
+      }
+
+      .one {
+        grid-column: 1;
+        grid-row: 1/4;
+        background-color: rgba(249, 211, 161, 0.5);
+        color: black;
+        font-size: 30px;
+        justify-items: center;
+        align-content: center;
+        font-family: sans-serif;
+      }
+
+      .text {
+        width: 150px;
+        margin-top: 5px;
+      }
+
+      .img {
+        margin-top: 15px;
+        height: 70px;
+      }
+
+      .two {
+        grid-column: 2 / 4;
+        grid-row: 1 / 3;
+        background-color: rgba(144, 82, 245, 0.942);
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        justify-items: center;
+        align-content: center;
+      }
+
+      .textStar {
+        align-content: center;
+        font-size: xx-large;
+        font-weight: 600;
+      }
+
+      .imgStar {
+        margin-top: 15px;
+        height: 20px;
+      }
+
+      .three {
+        grid-column: 1;
+        grid-row: 4 / 7;
+        background-color: rgba(250, 173, 72, 0.942);
+        color: black;
+        font-size: 30px;
+        font-family: sans-serif;
+        padding: 15px;
+      }
+
+      .textAI {
+        width: 150px;
+        align-content: flex-start;
+        margin-left: 20px;
+        margin-top: 20px;
+      }
+
+      .imgAI {
+        margin-top: 15px;
+        height: 170px;
+      }
+
+      .image {
+        justify-self: center;
+      }
+
+      .four {
+        grid-column: 2;
+        grid-row: 3/5;
+      }
+
+      .five {
+        grid-column: 3;
+        grid-row: 3/5;
+        background-color: rgba(250, 173, 72, 0.942);
+      }
+
+      .six {
+        grid-column: 2;
+        grid-row: 5/7;
+      }
+
+      .media {
+        margin-top: 50px;
+        font-family: sans-serif;
+        font-size: 20px;
+      }
+
+      .seven {
+        grid-column: 4;
+        grid-row: 1/5; /* Align container rows */
+        display: flex; /* Use flex for better content alignment */
+        flex-direction: column; /* Align content vertically */
+        justify-content: space-evenly; /* Spread content inside evenly */
+        background-color: rgba(224, 205, 255, 0.942);
+      }
+
+      .eight {
+        grid-column: 3/5; /* Stretches to align */
+        grid-row: 5/7;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background-color: rgba(144, 82, 245, 0.942);
+      }
+
+      .imgFollowers {
+        width: 100%; /* Full width to match its container */
+      }
+      .color {
+        color: rgba(144, 82, 245, 0.942);
+      }
+
+      .grid-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr; /* Divides container into three equal parts */
+        align-items: center; /* Aligns items vertically */
+      }
+
+      .center {
+        grid-column: 2; /* Puts text in the center column */
+        justify-self: center; /* Aligns text in the center */
+      }
+
+      .schedule-image-container {
+        position: relative; /* Ensures precise control over the image */
+        overflow: hidden; /* Hides the part of the image outside the container */
+        height: 56%; /* Adjust based on how much of the image you want to show */
+        width: 92%; /* Adjust the container width accordingly */
+      }
+
+      .imgSchedule {
+        overflow: hidden;
+        position: absolute;
+        top: 20px; /* Align the image properly */
+        left: 0; /* Ensures proper placement */
+        height: 90%; /* Original image height */
+        width: auto; /* Maintain the image's aspect ratio */
+      }
+
+      .four {
+        position: relative; /* Needed for positioning the image within this container */
+        background-color: white;
+      }
+
+      .image-container1 {
+        position: relative;
+        overflow: hidden; /* Hides the portion of the image that goes outside the container */
+        margin-left: 25px; /* Matches the text alignment */
+        height: 50%; /* Ensures only half the image is visible */
+        max-height: 110px; /* Optional: restricts maximum visibility of the image */
+      }
+
+      .imgPlatform {
+        margin-top: 15px;
+        position: relative; /* Allows the image to move relative to the container */
+        top: -5%; /* Adjust to bring only half of the image into view */
+        width: 140%; /* Scale the image */
+        display: block; /* Prevents any additional spacing issues */
+      }
+
+      .five {
+        position: relative; /* Needed for positioning the image within this container */
+      }
+
+      .text {
+        z-index: 1; /* Keeps the text above the image */
+      }
+
+      .image-container {
+        position: relative;
+        overflow: hidden; /* Hides the portion of the image that goes outside the container */
+        margin-left: 25px; /* Matches the text alignment */
+        height: 53.5%; /* Ensures only half the image is visible */
+        /* max-height: 110px; Optional: restricts maximum visibility of the image */
+      }
+
+      .imgMaintain {
+        margin-top: 15px;
+        position: relative; /* Allows the image to move relative to the container */
+        top: 5%; /* Adjust to bring only half of the image into view */
+        width: 80%; /* Scale the image */
+        display: block; /* Prevents any additional spacing issues */
+        overflow: hidden;
+      }
+
+      .six {
+        position: relative; /* Needed for positioning the image within this container */
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .image-container2 {
+        position: relative;
+        overflow: hidden; /* Hides the portion of the image that goes outside the container */
+        margin-left: 25px; /* Matches the text alignment */
+        margin-top: 20px;
+        height: 40%; /* Ensures only half the image is visible */
+        /* max-height: 110px; Optional: restricts maximum visibility of the image */
+      }
+
+      .imgAudience {
+        margin-top: 15px;
+        position: relative; /* Allows the image to move relative to the container */
+        top: 7%; /* Adjust to bring only half of the image into view */
+        width: 70%; /* Scale the image */
+        display: block; /* Prevents any additional spacing issues */
+      }
+
+      .eight {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 20px;
+      }
+
+      .imgFollowers {
+        width: 80%; /* Scale the image */
+        display: block; /* Prevents any additional spacing issues */
+      }
+
+      /* Mobile View */
+      @media (max-width: 768px) {
+        .wrapper {
+          display: flex;
+          flex-direction: column;
+          grid-template-columns: 1fr; /* Single column for mobile */
+          padding: 20px; /* Adjust padding for smaller screens */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="one">
+        <div class="text">
+          Create and schedule content
+          <i class="fa fa-italic color" aria-hidden="true">quicker.</i>
+        </div>
+        <div>
+          <img
+            src="./assets/images/illustration-create-post.webp"
+            class="img" />
+        </div>
+      </div>
+      <div class="two">
+        <div class="textStar">
+          Social Media <span style="color: rgba(250, 182, 94, 0.942)">10x</span>
+        </div>
+        <span class="textStar">
+          <i class="fa fa-italic" aria-hidden="true">Faster</i> with AI
+        </span>
+        <div>
+          <img
+            src="./assets/images/illustration-five-stars.webp"
+            class="imgStar" />
+        </div>
+        <div class="textReview">Over 4000 5-star reviews</div>
+      </div>
+      <div class="three">
+        <div class="textAI">Write your content using AI.</div>
+        <div class="image">
+          <img
+            src="./assets/images/illustration-ai-content.webp"
+            class="imgAI" />
+        </div>
+      </div>
+      <div class="four">
+        <div class="image-container1">
+          <img
+            src="./assets/images/illustration-multiple-platforms.webp"
+            class="imgPlatform" />
+        </div>
+        <div class="text" style="margin-left: 25px; font-size: 23px">
+          Manage multiple accounts and platforms.
+        </div>
+      </div>
+      <div class="five">
+        <div
+          class="text"
+          style="margin-left: 25px; margin-top: 25px; font-size: 30px">
+          Maintain a consistent posting schedule.
+        </div>
+        <div class="image-container">
+          <img
+            src="./assets/images/illustration-consistent-schedule.webp"
+            class="imgMaintain" />
+        </div>
+      </div>
+      <div class="six">
+        <div
+          class=""
+          style="margin-left: 25px; font-size: 60px; margin-top: 20px">
+          >56%
+          <div class="" style="font-size: 15px">faster audience growth</div>
+        </div>
+
+        <div class="image-container2">
+          <img
+            src="./assets/images/illustration-audience-growth.webp"
+            class="imgAudience" />
+        </div>
+      </div>
+      <div class="seven" style="font-family: Arial, Helvetica, sans-serif">
+        <div class="" style="margin-left: 25px; font-size: 35px">
+          Schedule to social media.
+        </div>
+        <div style="margin-left: 25px" class="schedule-image-container">
+          <img
+            src="./assets/images/illustration-schedule-posts.webp"
+            class="imgSchedule" />
+        </div>
+
+        <div class="" style="margin-left: 25px; font-size: 25px">
+          Optimize post timings to publish content at the perfect time for your
+          audience.
+        </div>
+      </div>
+      <div class="eight">
+        <div class="image-container3">
+          <img
+            src="./assets/images/illustration-grow-followers.webp"
+            class="imgFollowers" />
+        </div>
+        <div class="" style="font-size: 32px; color: white">
+          Grow followers with non-stop content.
+        </div>
+      </div>
+    </div>
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+      Coded by <a href="#">Saniya Mulla</a>.
+    </div>
+  </body>
+</html>
